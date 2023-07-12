@@ -7,7 +7,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.WebServer;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 
 import java.io.IOException;
 
@@ -23,7 +25,7 @@ public class HelloBootApplication {
                 @Override
                 protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
                     resp.setStatus(HttpStatus.OK.value());
-                    resp.setHeader("Content-type", "text/plain");
+                    resp.setHeader(HttpHeaders.CONTENT_TYPE, MediaType.TEXT_PLAIN_VALUE);
                     resp.getWriter().println("Hello servlet");
                 }
             }).addMapping("/hello");
