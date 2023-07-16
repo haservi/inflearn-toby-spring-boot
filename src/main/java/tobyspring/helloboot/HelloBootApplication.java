@@ -23,6 +23,7 @@ public class HelloBootApplication {
 
         GenericApplicationContext applicationContext = new GenericApplicationContext();
         applicationContext.registerBean(HelloController.class);
+        applicationContext.registerBean(SimpleHelloService.class);
         applicationContext.refresh();
 
         // jetty 등도 쓸 수 있음
