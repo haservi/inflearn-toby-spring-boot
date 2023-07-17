@@ -18,3 +18,12 @@
 
 Code Style은 `intellij-java-google-style.xml`로 적용했습니다.  
 관련 [링크](https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml)입니다.
+
+### 강의 클론 코딩 중 발생한 이슈
+
+버전이 달라서 발생한 문제  
+-spring boot 3.1.1을 적용하면서 `@RequestMapping`이 있어도 스프링 컨트롤러로 인식하지 않는 현상이 있다.  
+`@RestController`, `@Controller` 애노테이션이 있어야 스프링 컨트롤러로 인식한다.
+  - 스프링 boot 3.0부터는 클래스 레벨의 핸들러 감지 대상이 `@Controller`만 포함 됨
+  - [Github Issue](https://github.com/spring-projects/spring-framework/issues/22154)
+  - [변경 사항](https://github.com/spring-projects/spring-framework/commit/3600644ed1776dce35c4a42d74799a90b90e359e)
