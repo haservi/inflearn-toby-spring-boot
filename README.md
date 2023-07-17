@@ -10,8 +10,11 @@
 강의에서 나온 mac에서 쓸만한 프로그램
 
 - [sdkman](https://sdkman.io/): jdk 및 여러 sdk들의 버전을 쉽게 변경할 수 있도록 해준다.
-- [Wrap](https://www.warp.dev/): AI가 내장된 터미널(다양한 기능 있음) 
+- [Wrap](https://www.warp.dev/): AI가 내장된 터미널(다양한 기능 있음)
 - [httpie](https://httpie.io/cli): 터미널에서 간단한 api 응답 요청이 가능하다.
     ```
     http -v ":8080/hello?name=Spring
     ```
+
+Code Style은 `intellij-java-google-style.xml`로 적용했습니다.  
+관련 [링크](https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml)입니다.
