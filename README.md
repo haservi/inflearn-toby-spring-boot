@@ -27,3 +27,13 @@ Code Style은 `intellij-java-google-style.xml`로 적용했습니다.
   - 스프링 boot 3.0부터는 클래스 레벨의 핸들러 감지 대상이 `@Controller`만 포함 됨
   - [Github Issue](https://github.com/spring-projects/spring-framework/issues/22154)
   - [변경 사항](https://github.com/spring-projects/spring-framework/commit/3600644ed1776dce35c4a42d74799a90b90e359e)
+
+API를 통한 테스트 중 port가 안맞는 문제
+
+``` bash
+org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8080/hello": Connection refused
+... 
+```
+
+와 같은 에러 발생하여 테스트 클래스 상단에 `@SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)` 어노테이션 추가    
+-> [관련링크](https://stackoverflow.com/questions/73828590/i-o-error-on-get-in-testresttemplate-getforentity-method)
