@@ -1,4 +1,4 @@
-package config;
+package tobyspring.config;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
