@@ -17,9 +17,16 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    implementation 'org.springframework.boot:spring-boot-starter-jetty'
+    // https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-servlet
+    implementation group: 'org.eclipse.jetty', name: 'jetty-servlet', version: '11.0.15'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+
