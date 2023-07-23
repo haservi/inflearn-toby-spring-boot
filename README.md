@@ -54,6 +54,14 @@ Code Style은 `intellij-java-google-style.xml`로 적용했습니다.
   implementation group: 'org.eclipse.jetty', name: 'jetty-servlet', version: '11.0.15'
   ```
 
+  조금 더 찾아보니 스프링부트에 [이슈](https://github.com/spring-projects/spring-boot/issues/33044)로
+  있으며, `build.gradle`에서
+  ``` bash
+  ext['jakarta-servlet.version'] = '5.0.0' 
+  ```
+  를 명시적으로 써주면 된다고하여 수정했다.
+
+
 - 버전이 안맞는
   문제 [링크](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide#jetty
 

@@ -15,12 +15,11 @@ repositories {
     mavenCentral()
 }
 
+ext['jakarta-servlet.version'] = '5.0.0'
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-
     implementation 'org.springframework.boot:spring-boot-starter-jetty'
-    // https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-servlet
-    implementation group: 'org.eclipse.jetty', name: 'jetty-servlet', version: '11.0.15'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
