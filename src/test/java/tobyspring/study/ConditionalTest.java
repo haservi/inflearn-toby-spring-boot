@@ -4,6 +4,7 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+import java.util.Map;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -59,8 +60,16 @@ class ConditionalTest {
         });
   }
 
+  @Retention(RetentionPolicy.RUNTIME)
+  @Target(ElementType.TYPE)
+  @Conditional(BooleanCondition.class)
+  @interface BooleanConditional {
+
+    boolean value();
+  }
+
   @Configuration
-  @Conditional(TrueCondition.class)
+  @BooleanConditional(true)
   static class Config1 {
 
     @Bean
@@ -69,13 +78,9 @@ class ConditionalTest {
     }
   }
 
-  @Retention(RetentionPolicy.RUNTIME)
-  @Target(ElementType.TYPE)
-  @Conditional(FalseCondition.class)
-  @interface FalseConditional {}
 
   @Configuration
-  @FalseConditional
+  @BooleanConditional(false)
   static class Config2 {
 
     @Bean
@@ -88,19 +93,14 @@ class ConditionalTest {
 
   }
 
-  static class TrueCondition implements Condition {
+  static class BooleanCondition implements Condition {
 
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
-      return true;
-    }
-  }
-
-  static class FalseCondition implements Condition {
-
-    @Override
-    public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
-      return false;
+      // metadata에 interface값이 들어있음
+      Map<String, Object> annotationAttributes = metadata.getAnnotationAttributes(
+          BooleanConditional.class.getName());
+      return (Boolean) annotationAttributes.get("value");
     }
   }
 
