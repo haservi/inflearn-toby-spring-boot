@@ -3,15 +3,11 @@ package tobyspring.config.autoconfig;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Condition;
-import org.springframework.context.annotation.ConditionContext;
-import org.springframework.context.annotation.Conditional;
-import org.springframework.core.type.AnnotatedTypeMetadata;
+import tobyspring.config.ConditionalMyOnClass;
 import tobyspring.config.MyAutoConfiguration;
-import tobyspring.config.autoconfig.TomcatWebServerConfig.TomcatCondition;
 
 @MyAutoConfiguration
-@Conditional(TomcatCondition.class)
+@ConditionalMyOnClass("org.apache.catalina.startup.Tomcat")
 public class TomcatWebServerConfig {
 
   @Bean("tomcatWebServerFactory")
@@ -19,11 +15,12 @@ public class TomcatWebServerConfig {
     return new TomcatServletWebServerFactory();
   }
 
-  static class TomcatCondition implements Condition {
-
-    @Override
-    public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
-      return false;
-    }
-  }
+//  static class TomcatCondition implements Condition {
+//
+//    @Override
+//    public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
+//      return ClassUtils.isPresent("org.apache.catalina.startup.Tomcat",
+//          context.getClassLoader());
+//    }
+//  }
 }
