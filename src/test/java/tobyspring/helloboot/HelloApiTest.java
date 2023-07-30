@@ -16,7 +16,7 @@ class HelloApiTest {
     // Given: http localhost:8080/hello?name=Spring
     TestRestTemplate restTemplate = new TestRestTemplate();
     ResponseEntity<String> response = restTemplate.getForEntity(
-        "http://localhost:8080/hello?name={name}", String.class, "Spring");
+        "http://localhost:8080/app/hello?name={name}", String.class, "Spring");
 
     // Then: status code 200
     assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);

@@ -65,6 +65,17 @@ Code Style은 `intellij-java-google-style.xml`로 적용했습니다.
 - 버전이 안맞는
   문제 [링크](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide#jetty
 
+### 환경 설정을 통해 env 우선 순위를 정할 수 있다.
+
+![image](./images/image01.png)
+
+위와 같이 설정한 경우 기존 `application.properties`보다 더 높은 우선순위를 지정할 수 있다.  
+VM Option > Environment variables > application.properties 순으로 우선순위가 정해진다.
+
+
+
+
+
 ### 추가 팁
 
 - gradle 라이브러리 디펜더시 확인
