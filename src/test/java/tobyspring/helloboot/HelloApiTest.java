@@ -16,7 +16,7 @@ class HelloApiTest {
     // Given: http localhost:8080/hello?name=Spring
     TestRestTemplate restTemplate = new TestRestTemplate();
     ResponseEntity<String> response = restTemplate.getForEntity(
-        "http://localhost:8080/app/hello?name={name}", String.class, "Spring");
+        "http://localhost:9090/app/hello?name={name}", String.class, "Spring");
 
     // Then: status code 200
     assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
@@ -32,7 +32,7 @@ class HelloApiTest {
     // Given: http localhost:8080/hello123?name=Spring
     TestRestTemplate restTemplate = new TestRestTemplate();
     ResponseEntity<String> response = restTemplate.getForEntity(
-        "http://localhost:8080/hello123?name={name}", String.class, "Spring");
+        "http://localhost:9090/hello123?name={name}", String.class, "Spring");
 
     // Then: status code 404
     assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);

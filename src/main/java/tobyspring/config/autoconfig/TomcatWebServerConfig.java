@@ -2,11 +2,11 @@ package tobyspring.config.autoconfig;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.env.Environment;
 import tobyspring.config.ConditionalMyOnClass;
 import tobyspring.config.MyAutoConfiguration;
 
@@ -16,18 +16,18 @@ public class TomcatWebServerConfig {
 
   private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-  @Value("${contextPath}")
-  String contextPath;
-
   @Bean("tomcatWebServerFactory")
   @ConditionalOnMissingBean
-  public ServletWebServerFactory servletWebServerFactory() {
+  public ServletWebServerFactory servletWebServerFactory(ServerProperties serverProperties) {
     TomcatServletWebServerFactory serverFactory = new TomcatServletWebServerFactory();
 
-    logger.info("contextPath: {}", this.contextPath);
+    logger.info("contextPath: {}", serverProperties.getContextPath());
 
-    serverFactory.setContextPath(this.contextPath);
+    serverFactory.setContextPath(serverProperties.getContextPath());
+    serverFactory.setPort(serverProperties.getPort());
+
     return serverFactory;
   }
+
 
 }
