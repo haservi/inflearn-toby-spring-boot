@@ -63,7 +63,12 @@ Code Style은 `intellij-java-google-style.xml`로 적용했습니다.
 
 
 - 버전이 안맞는
-  문제 [링크](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide#jetty
+  문제 [링크](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide#jetty)
+
+- Hikari-cp 설정이 잘안되는 현상
+  ```bash
+  implementation('com.zaxxer:HikariCP:4.0.3') // 이렇게 하니 잘됨..
+  ```
 
 ### 환경 설정을 통해 env 우선 순위를 정할 수 있다.
 
