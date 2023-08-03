@@ -19,10 +19,17 @@ public class HelloController {
 
   @GetMapping("/hello")
   public String hello(String name) {
+    logger.info("hello service");
     if (name == null || name.trim().length() == 0) {
       throw new IllegalArgumentException();
     }
 
     return helloService.sayHello(Objects.requireNonNull(name));
   }
+
+  @GetMapping("/count")
+  public String count(String name) {
+    return name + ": " + helloService.countOf(name);
+  }
+
 }
