@@ -1,6 +1,6 @@
 tobyspring.config.autoconfig.DataSourceConfig
-tobyspring.config.autoconfig.PropertyPlaceholderConfig
 tobyspring.config.autoconfig.DispatcherServletConfig
 tobyspring.config.autoconfig.JettyWebServerConfig
-tobyspring.config.autoconfig.TomcatWebServerConfig
+tobyspring.config.autoconfig.PropertyPlaceholderConfig
 tobyspring.config.autoconfig.PropertyPostProcessorConfig
+tobyspring.config.autoconfig.TomcatWebServerConfig
