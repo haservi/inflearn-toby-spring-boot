@@ -26,12 +26,4 @@ class JdbcTemplateTest {
     Assertions.assertThat(count).isEqualTo(2);
   }
 
-  @Test
-  void insert_and_query2() {
-    jdbcTemplate.update("INSERT INTO hello VALUES(?, ?)", "Haseop", 3);
-    jdbcTemplate.update("INSERT INTO hello VALUES(?, ?)", "Tester", 1);
-
-    Long count = jdbcTemplate.queryForObject("SELECT count(*) FROM hello", Long.class);
-    Assertions.assertThat(count).isEqualTo(2);
-  }
 }

@@ -88,3 +88,4 @@ VM Option > Environment variables > application.properties 순으로 우선순�
   ./gradlew dependencies --configuration compileClasspath
   ```
 - [스프링 부트 스타터 공식 문서](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using.build-systems.starters)
+- 코드에서 `Comaparator.java` 인터페이스를 보면 좋다고 함.
