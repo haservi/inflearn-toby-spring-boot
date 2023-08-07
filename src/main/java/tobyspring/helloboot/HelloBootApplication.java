@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.condition.ConditionEvaluationReport;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -19,6 +20,23 @@ public class HelloBootApplication {
 
   public HelloBootApplication(JdbcTemplate jdbcTemplate) {
     this.jdbcTemplate = jdbcTemplate;
+  }
+
+  @Bean
+  ApplicationRunner run(ConditionEvaluationReport report) {
+    return args -> {
+      report.getConditionAndOutcomesBySource()
+          .entrySet().stream()
+          .filter(co -> co.getValue().isFullMatch())
+          .filter(co -> co.getKey().indexOf("jms") < 0)
+          .forEach(co -> {
+//            System.out.println(co.getKey());
+            co.getValue().forEach(c -> {
+              System.out.println("\t" + c.getOutcome());
+            });
+            System.out.println();
+          });
+    };
   }
 
   @PostConstruct

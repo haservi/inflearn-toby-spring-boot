@@ -77,6 +77,11 @@ Code Style은 `intellij-java-google-style.xml`로 적용했습니다.
 위와 같이 설정한 경우 기존 `application.properties`보다 더 높은 우선순위를 지정할 수 있다.  
 VM Option > Environment variables > application.properties 순으로 우선순위가 정해진다.
 
+### 기존 스프링 자동 구성 확인
+
+설정의 add VM option 에서  `-Ddebug`를 정의하면 프로젝트를 실행하면 무언가 나온다.
+
+
 
 
 
