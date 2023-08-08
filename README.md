@@ -1,7 +1,7 @@
 # 토비의 스프링 부트 - 이해와 원리
 
 학습 시작일: 2023.07.11  
-학습 종료일:
+학습 종료일: 2023.08.08
 
 인프런 강의 중에 토비님의 강의를 들으면서 학습한 코드를 정리한 저장소입니다.
 
@@ -36,7 +36,7 @@ Code Style은 `intellij-java-google-style.xml`로 적용했습니다.
   ```
   와 같은 에러 발생하여 테스트 클래스 상단에 `@SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)` 어노테이션
   추가    
-  -> [관련링크](https://stackoverflow.com/questions/73828590/i-o-error-on-get-in-testresttemplate-getforentity-method)
+  -> [관련 링크](https://stackoverflow.com/questions/73828590/i-o-error-on-get-in-testresttemplate-getforentity-method)
 
 - jetty를 config로 지정할 때 아래와 같은 에러가 발생한 경우
   ``` bash
@@ -82,10 +82,6 @@ VM Option > Environment variables > application.properties 순으로 우선순�
 설정의 add VM option 에서  `-Ddebug`를 정의하면 프로젝트를 실행하면 무언가 나온다.
 
 
-
-
-
-
 ### 추가 팁
 
 - gradle 라이브러리 디펜더시 확인
@@ -93,4 +89,5 @@ VM Option > Environment variables > application.properties 순으로 우선순�
   ./gradlew dependencies --configuration compileClasspath
   ```
 - [스프링 부트 스타터 공식 문서](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using.build-systems.starters)
-- 코드에서 `Comaparator.java` 인터페이스를 보면 좋다고 함.
+- 코드에서 `Comaparator.java` 인터페이스를 보면 좋다고 함
+- 스프링 부트에서 운영환경의 모니터링, 관리 방법도 있다고 함
